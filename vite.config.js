@@ -6,5 +6,14 @@ export default defineConfig({
   server: {
     port: 5173,
     open: true
+  },
+  build: {
+    rollupOptions: {
+      onwarn(warning) {
+        // Suppress Rollup warnings for intentional external module handling
+        if (warning.code === 'UNRESOLVED_IMPORT') return
+        if (warning.code === 'THIS_IS_UNDEFINED') return
+      }
+    }
   }
 })
