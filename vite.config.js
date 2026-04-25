@@ -15,5 +15,6 @@ export default defineConfig({
         if (warning.code === 'THIS_IS_UNDEFINED') return
       }
     }
-  }
+  },
+  appType: 'spa'
 })
