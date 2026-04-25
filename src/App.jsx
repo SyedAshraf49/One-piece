@@ -18,7 +18,11 @@ export default function App() {
   }, []);
 
   return (
-    <div className="w-full bg-navy overflow-x-hidden">
+    <div style={{
+      width: '100%',
+      backgroundColor: '#0a0e1a',
+      overflowX: 'hidden'
+    }}>
       <Hero />
       <About />
       <Skills />
