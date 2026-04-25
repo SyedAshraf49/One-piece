@@ -4,6 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 :root {
   --navy: #0a0e1a;
   --sea: #0d1b2a;
@@ -220,6 +235,19 @@ h4 { font-size: 1.5rem; }
 
 .section-subtitle {
   @apply text-lg sm:text-xl text-center text-white/70 mb-12 font-inter;
+}
+
+/* SVG Utilities */
+.stroke-gold {
+  stroke: var(--gold);
+}
+
+.stroke-white {
+  stroke: var(--white);
+}
+
+.fill-gold {
+  fill: var(--gold);
 }
 
 /* ============== RESPONSIVE UTILITIES ============== */

@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -23,6 +23,9 @@ export default {
       },
       fontSize: {
         'title': '3.5rem',
+      },
+      spacing: {
+        '128': '32rem',
       }
     },
   },
