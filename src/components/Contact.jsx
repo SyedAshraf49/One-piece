@@ -465,7 +465,24 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows="5"
-                className="w-full bg-transparent border-b-2 border-gray-400 text-navy font-inter py-3 focus:outline-none focus:border-gold transition-colors placeholder-gray-500 resize-none"
+                style={{
+                  width: '100%',
+                  backgroundColor: 'transparent',
+                  borderBottom: '2px solid #999',
+                  color: '#0a0e1a',
+                  fontFamily: 'Inter, sans-serif',
+                  paddingTop: '12px',
+                  paddingBottom: '12px',
+                  outline: 'none',
+                  transition: 'border-color 0.3s',
+                  resize: 'none'
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderBottomColor = '#f4c542';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderBottomColor = '#999';
+                }}
                 aria-label="Your message"
               />
             </motion.div>
@@ -473,7 +490,20 @@ export default function Contact() {
             {/* Submit Button */}
             <motion.button
               type="submit"
-              className="w-full bg-red text-white font-cinzel font-bold py-3 rounded-lg hover:bg-red/90 transition-all hover:shadow-lg hover:shadow-red/50 transform hover:-translate-y-0.5"
+              style={{
+                width: '100%',
+                backgroundColor: '#c0392b',
+                color: '#e8e8e8',
+                fontFamily: 'Cinzel, serif',
+                fontWeight: 'bold',
+                paddingTop: '12px',
+                paddingBottom: '12px',
+                borderRadius: '8px',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.3s',
+                boxShadow: '0 0 0 transparent'
+              }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.4 }}
@@ -481,6 +511,16 @@ export default function Contact() {
               whileTap={{ scale: 0.98 }}
               viewport={{ once: true }}
               aria-label="Send message"
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = '#a52a1f';
+                e.target.style.boxShadow = '0 0 20px rgba(192, 57, 43, 0.5)';
+                e.target.style.transform = 'translateY(-4px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = '#c0392b';
+                e.target.style.boxShadow = '0 0 0 transparent';
+                e.target.style.transform = 'translateY(0)';
+              }}
             >
               Send via Sea King Post 🌊
             </motion.button>
@@ -492,9 +532,23 @@ export default function Contact() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="mt-6 p-4 bg-gold/20 border border-gold rounded-lg text-center"
+              style={{
+                marginTop: '24px',
+                paddingLeft: '16px',
+                paddingRight: '16px',
+                paddingTop: '16px',
+                paddingBottom: '16px',
+                backgroundColor: 'rgba(244, 197, 66, 0.2)',
+                border: '1px solid #f4c542',
+                borderRadius: '8px',
+                textAlign: 'center'
+              }}
             >
-              <p className="text-gold font-cinzel font-bold">
+              <p style={{
+                color: '#f4c542',
+                fontFamily: 'Cinzel, serif',
+                fontWeight: 'bold'
+              }}>
                 ✓ Your message has set sail!
               </p>
             </motion.div>
@@ -503,7 +557,12 @@ export default function Contact() {
 
         {/* Social Links */}
         <motion.div
-          className="mt-12 flex justify-center gap-6"
+          style={{
+            marginTop: '48px',
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '24px'
+          }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
@@ -514,10 +573,32 @@ export default function Contact() {
               href={resumeData.contactInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-navy border-2 border-gold text-gold hover:bg-gold hover:text-navy transition-all hover:scale-110"
+              style={{
+                paddingTop: '12px',
+                paddingBottom: '12px',
+                paddingLeft: '12px',
+                paddingRight: '12px',
+                borderRadius: '50%',
+                backgroundColor: '#0a0e1a',
+                border: '2px solid #f4c542',
+                color: '#f4c542',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.3s',
+                cursor: 'pointer'
+              }}
               whileHover={{ scale: 1.15 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Visit my GitHub"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#f4c542';
+                e.currentTarget.style.color = '#0a0e1a';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#0a0e1a';
+                e.currentTarget.style.color = '#f4c542';
+              }}
             >
               <Github size={28} />
             </motion.a>
@@ -528,10 +609,32 @@ export default function Contact() {
               href={resumeData.contactInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-navy border-2 border-gold text-gold hover:bg-gold hover:text-navy transition-all hover:scale-110"
+              style={{
+                paddingTop: '12px',
+                paddingBottom: '12px',
+                paddingLeft: '12px',
+                paddingRight: '12px',
+                borderRadius: '50%',
+                backgroundColor: '#0a0e1a',
+                border: '2px solid #f4c542',
+                color: '#f4c542',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.3s',
+                cursor: 'pointer'
+              }}
               whileHover={{ scale: 1.15 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Visit my LinkedIn"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#f4c542';
+                e.currentTarget.style.color = '#0a0e1a';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#0a0e1a';
+                e.currentTarget.style.color = '#f4c542';
+              }}
             >
               <Linkedin size={28} />
             </motion.a>
@@ -539,10 +642,32 @@ export default function Contact() {
 
           <motion.a
             href={`mailto:${resumeData.contactInfo.email}`}
-            className="p-3 rounded-full bg-navy border-2 border-gold text-gold hover:bg-gold hover:text-navy transition-all hover:scale-110"
+            style={{
+              paddingTop: '12px',
+              paddingBottom: '12px',
+              paddingLeft: '12px',
+              paddingRight: '12px',
+              borderRadius: '50%',
+              backgroundColor: '#0a0e1a',
+              border: '2px solid #f4c542',
+              color: '#f4c542',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.3s',
+              cursor: 'pointer'
+            }}
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Send me an email"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#f4c542';
+              e.currentTarget.style.color = '#0a0e1a';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#0a0e1a';
+              e.currentTarget.style.color = '#f4c542';
+            }}
           >
             <Mail size={28} />
           </motion.a>
@@ -551,14 +676,23 @@ export default function Contact() {
 
       {/* Contact Info Text */}
       <motion.div
-        className="mt-12 text-center relative z-10"
+        style={{
+          marginTop: '48px',
+          textAlign: 'center',
+          position: 'relative',
+          zIndex: 10
+        }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <p className="text-white/70 font-inter text-sm">
-          Or reach out directly: <span className="text-gold font-semibold">{resumeData.contactInfo.email}</span>
+        <p style={{
+          color: 'rgba(232, 232, 232, 0.7)',
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '0.875rem'
+        }}>
+          Or reach out directly: <span style={{ color: '#f4c542', fontWeight: '600' }}>{resumeData.contactInfo.email}</span>
         </p>
       </motion.div>
     </section>
