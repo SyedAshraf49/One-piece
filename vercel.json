@@ -3,9 +3,5 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "vite",
-  "outputDirectory": "dist",
-  "env": {
-    "VITE_APP_NAME": "@VITE_APP_NAME"
-  },
-  "regions": ["iad1"]
+  "outputDirectory": "dist"
 }
