@@ -97,7 +97,7 @@ export default function Hero() {
   };
 
   return (
-    <section style={{
+    <section id="hero" style={{
       position: 'relative',
       minHeight: '100vh',
       width: '100%',
