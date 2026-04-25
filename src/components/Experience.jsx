@@ -1,14 +1,23 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Anchor } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 
 const ExperienceEntry = ({ experience, index, isLeft }) => {
+  const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' && window.innerWidth > 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth > 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <motion.div style={{
       display: 'flex',
       alignItems: 'center',
       marginBottom: '48px',
-      flexDirection: isLeft && window.innerWidth > 768 ? 'row-reverse' : 'row'
+      flexDirection: isLeft && isDesktop ? 'row-reverse' : 'row'
     }}
       initial={{ opacity: 0, x: isLeft ? 50 : -50 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -16,7 +25,7 @@ const ExperienceEntry = ({ experience, index, isLeft }) => {
       viewport={{ once: true }}
     >
       {/* Content Card */}
-      <div style={{ width: 'calc(50% - 24px)', paddingLeft: isLeft && window.innerWidth > 768 ? '0' : '24px', paddingRight: !isLeft && window.innerWidth > 768 ? '0' : '24px' }}>
+      <div style={{ width: 'calc(50% - 24px)', paddingLeft: isLeft && isDesktop ? '0' : '24px', paddingRight: !isLeft && isDesktop ? '0' : '24px' }}>
         <motion.div style={{
           backgroundColor: '#0a0e1a',
           borderLeft: '4px solid #f4c542',
