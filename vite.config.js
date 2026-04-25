@@ -6,16 +6,5 @@ export default defineConfig({
   server: {
     port: 5173,
     open: true
-  },
-  build: {
-    rollupOptions: {
-      onwarn(warning, warn) {
-        // Suppress the /src/main.jsx unresolved import warning
-        if (warning.code === 'UNRESOLVED_IMPORT' && warning.source?.includes('main.jsx')) {
-          return
-        }
-        warn(warning)
-      }
-    }
   }
 })
